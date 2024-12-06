@@ -2,7 +2,7 @@ import { Schema } from 'mongoose';
 
 const UserSchema = new Schema(
   {
-    email: {
+    username: {
       type: String,
       required: true,
       unique: true,
@@ -10,11 +10,7 @@ const UserSchema = new Schema(
     password: {
       type: String,
       required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
+    }
   },
   {
     timestamps: true,

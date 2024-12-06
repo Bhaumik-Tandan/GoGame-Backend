@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   async verifyUser(login) {
-    const user = await this.userService.findByEmail(login.email);
+    const user = await this.userService.findByUsername(login.username);
     if (!user) {
       throw new HttpException('Invalid Credentials', 401);
     }
