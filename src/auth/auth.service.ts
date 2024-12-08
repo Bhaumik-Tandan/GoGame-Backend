@@ -12,7 +12,8 @@ export class AuthService {
   async signUpUser(data) {
     data.password = await AuthService.hashPassword(data.password);
     const user = await this.userService.create(data);
-    return user;
+    const token = this.getAuthToken(user);
+    return {user,token};
   }
   static hashPassword(password: string): Promise<string> {
     return new Promise((resolve, reject) => {
