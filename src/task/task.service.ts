@@ -22,12 +22,12 @@ export class TaskService {
     return await this.taskModel.findOne({ _id: id, user }).exec();
   }
   
-  async update(id: string, updateTaskDto, userId: string) {
-    return await this.taskModel.findOneAndUpdate({ _id: id, userId }, updateTaskDto, { new: true }).exec();
+  async update(id: string, updateTaskDto, user: string) {
+    return await this.taskModel.findOneAndUpdate({ _id: id, user }, updateTaskDto, { new: true }).exec();
   }
   
-  async remove(id: string, userId: string) {
-    return await this.taskModel.deleteOne({ _id: id, userId }).exec();
+  async remove(id: string, user: string) {
+    return await this.taskModel.deleteOne({ _id: id, user }).exec();
   }
   
 }
